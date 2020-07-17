@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "totp",
-    "slug": "totp",
+    "name": "软域令牌",
+    "slug": "softdomaintotp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/SD.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -17,10 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.softdomain.sd",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.softdomain.sd",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
