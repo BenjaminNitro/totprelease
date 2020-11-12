@@ -2,11 +2,11 @@
   "expo": {
     "name": "软域令牌",
     "slug": "softdomaintotp",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/SD.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/sdtm1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,9 +17,12 @@
       "**/*"
     ],
     "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "相机功能用于扫描您提供的二维码"
+      },
       "supportsTablet": true,
       "bundleIdentifier": "com.softdomain.sd",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.2"
     },
     "android": {
       "package": "com.softdomain.sd",

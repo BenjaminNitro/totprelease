@@ -9,7 +9,7 @@ import Constants from "expo-constants";
 import Accordion from 'react-native-collapsible/Accordion';
 import { FontAwesome } from '@expo/vector-icons';
 import {sm3} from 'sm-crypto'
-
+import Clock from './Clock'
 const TOTP = function() {
 
     var dec2hex = function(s) {
@@ -134,6 +134,7 @@ const HomeScreen = ({navigation}) => {
     let totpObj = new TOTP()
     const [slist, setslist] = useState([])
     const [remain, setremain] = useState(0)
+    const [key,setkey] = useState(0)
 
     // AsyncStorage.removeItem('los').then(res=>{
     //     console.log('removed')
@@ -150,7 +151,6 @@ const HomeScreen = ({navigation}) => {
         })
     },[]))
 
-
     var getRemain = () => {
         var currentSecond = new Date().getSeconds()
         if(currentSecond > 30){
@@ -161,7 +161,7 @@ const HomeScreen = ({navigation}) => {
             setremain(0)
         }
         if(remain === 0){
-            console.log('时间到啦')
+            setkey(old => old + 1)
         }
     }
 
@@ -180,6 +180,7 @@ const HomeScreen = ({navigation}) => {
         return <CountdownCircleTimer
             size={40}
             strokeWidth={2}
+            key={key}
             isPlaying={true}
             duration={30}
             initialRemainingTime={initialTime}
@@ -192,13 +193,14 @@ const HomeScreen = ({navigation}) => {
                 ({ remainingTime, animatedColor }) => (
                     <Animated.Text
                         style={{ ...styles.remainingTime, color: animatedColor }}>
-                        {remain - 1 < 0 ? 29 : remain - 1}
+                        {remainingTime}
                     </Animated.Text>
                 )
             }
         </CountdownCircleTimer>
     }
     timer.setInterval("MyTimer",getRemain,1000)
+
 
     const [active, setactive] = useState([])
 
@@ -295,6 +297,7 @@ const HomeScreen = ({navigation}) => {
                     onChange={_updateSections}
                 />
                 }
+                {/*<Clock/>*/}
                 {/*<Button*/}
                 {/*    title="清除缓存"*/}
                 {/*    color="rgb(31, 132, 219)"*/}
