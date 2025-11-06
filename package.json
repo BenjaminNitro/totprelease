@@ -22,7 +22,7 @@
     "native-base": "^2.13.12",
     "react": "~16.11.0",
     "react-dom": "16.11.0",
-    "react-native": "~0.62.2",
+    "react-native": "~0.82.1",
     "react-native-collapsible": "^1.5.2",
     "react-native-countdown-circle-timer": "^2.2.2",
     "react-native-gesture-handler": "~1.6.0",
